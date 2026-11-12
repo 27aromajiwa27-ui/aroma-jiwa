@@ -1,0 +1,18 @@
+# Konfigurasi Render Blueprint untuk Aroma Jiwa Hadir.
+# Render membaca berkas ini saat Anda memilih "New > Blueprint" dan menunjuk
+# repositori GitHub proyek ini, lalu membuat layanan web gratis secara otomatis.
+services:
+  - type: web
+    name: aroma-jiwa
+    runtime: python
+    plan: free
+    region: singapore
+    # Tidak ada dependensi maupun langkah build; server hanya Python stdlib.
+    buildCommand: echo "tanpa dependensi"
+    startCommand: python3 run.py
+    healthCheckPath: /api/health
+    envVars:
+      - key: AJ_SECRET
+        generateValue: true
+      - key: AJ_QUIET
+        value: "1"

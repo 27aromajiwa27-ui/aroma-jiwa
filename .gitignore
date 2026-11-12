@@ -1,0 +1,27 @@
+# Sistem
+.DS_Store
+*.log
+
+# Data runtime (SQLite dibuat ulang oleh server)
+data/*.db
+data/*.db-wal
+data/*.db-shm
+data/backup/
+
+# Kunci deploy — JANGAN pernah masuk repositori
+.deploy/
+
+# Perkakas editor
+.idea/
+.vscode/
+.qoder/
+
+# Keluaran build Android
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+android/.kotlin/
+
+# APK hasil build (bisa dibuat ulang)
+dist/

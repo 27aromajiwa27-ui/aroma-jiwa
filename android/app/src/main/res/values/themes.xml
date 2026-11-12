@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.AromaJiwa" parent="@android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:colorPrimary">@color/brand_blue</item>
+        <item name="android:colorPrimaryDark">@color/brand_navy</item>
+        <item name="android:colorAccent">@color/brand_blue</item>
+        <item name="android:statusBarColor">@color/brand_navy</item>
+        <item name="android:navigationBarColor">@color/brand_navy</item>
+        <item name="android:windowBackground">@color/brand_bg</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <!-- Dipakai saat proses start: logo + gradien brand sebelum WebView siap. -->
+    <style name="Theme.AromaJiwa.Splash" parent="Theme.AromaJiwa">
+        <item name="android:windowBackground">@drawable/splash</item>
+    </style>
+
+</resources>

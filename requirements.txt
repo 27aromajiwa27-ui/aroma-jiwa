@@ -1,0 +1,3 @@
+# Aroma Jiwa Hadir tidak memakai pustaka pihak ketiga (Python stdlib saja).
+# Berkas ini sengaja kosong; Render memakainya sebagai penanda bahwa ini
+# proyek Python, dan `pip install -r requirements.txt` menjadi tanpa efek.
