@@ -66,7 +66,7 @@
       return;
     }
     statusOut.style.color = "#fff";
-    statusOut.textContent = "Menguji " + urlOut.textContent + " …";
+    statusOut.textContent = "Menguji " + urlOut.textContent + " … (bisa sampai 30 detik kalau server sedang dibangunkan)";
     bridge().probe();
   }
 
@@ -78,9 +78,12 @@
       statusOut.textContent = "Server menjawab (HTTP " + data.code + "). Tekan “Coba lagi”.";
     } else {
       statusOut.style.color = "#FFE1E1";
-      statusOut.textContent = "Tidak ada jawaban dari " + data.url +
-        (data.error ? " — " + data.error : " (HTTP " + data.code + ")") +
-        ". Berarti masalah jaringan/alamat, bukan aplikasi.";
+      var sebab = data.error === "SocketTimeoutException"
+        ? " — server tidak menjawab dalam 30 detik. Layanan gratis biasanya sedang dibangunkan: tunggu ±1 menit, lalu tekan “Uji koneksi” lagi."
+        : data.error === "ConnectException"
+          ? " — alamat tidak bisa dihubungi dari jaringan ini."
+          : data.error ? " — " + data.error : " (HTTP " + data.code + ")";
+      statusOut.textContent = "Tidak ada jawaban dari " + data.url + sebab;
     }
   };
 </script>

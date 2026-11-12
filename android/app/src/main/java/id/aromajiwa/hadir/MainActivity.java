@@ -504,8 +504,10 @@ public class MainActivity extends Activity {
             try {
                 java.net.HttpURLConnection conn =
                         (java.net.HttpURLConnection) new java.net.URL(target).openConnection();
-                conn.setConnectTimeout(5000);
-                conn.setReadTimeout(5000);
+                // Longgar: layanan gratis seperti Render tidur setelah 15 menit idle
+                // dan butuh 30-60 detik untuk bangun saat permintaan pertama datang.
+                conn.setConnectTimeout(30000);
+                conn.setReadTimeout(30000);
                 conn.setRequestMethod("GET");
                 int code = conn.getResponseCode();
                 conn.disconnect();
